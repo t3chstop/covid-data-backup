@@ -26,8 +26,17 @@ public class MapsAndScanners {
 			String currentLine = scanner.nextLine();
 			String[] split = currentLine.split(",");
 			
-			if (split[2].length()>0 && split[1].equals("CA")) {
-				total+=Integer.valueOf(split[2]);
+			
+			
+			if (split[2].length()>0) {
+				System.out.println(split[1] + " " + split[2]);
+				int current = 0;
+				try {
+					current = states.get(split[1]);
+				} catch (Exception e) {
+					;
+				}
+				states.put(split[1], Integer.valueOf(split[2]) + current);
 			}
 			
 			
@@ -35,7 +44,7 @@ public class MapsAndScanners {
 			System.out.println(states.get("FL"));
 		}
 		
-		System.out.println(total);
+		System.out.println(states.toString());
 		
 		
 		
